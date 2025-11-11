@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+        <link href="./output.css" rel="stylesheet" />
+        <title>Document</title>
+    </head>
+    <body class="bg-[#ecf9fc] flex">
+        <!-- Sidebar -->
+        <aside class="w-64 h-screen bg-white shadow-sm flex flex-col p-5">
+            <div class="flex items-center space-x-1 mb-8">
+                <h1 class="text-2xl font-extrabold">
+                    <span class="text-[#f6464b]">Food</span>
+                    <span class="text-[#6fc13e]">Mode</span>
+                </h1>
+            </div>
+
+            <ul class="space-y-3 text-gray-700">
+                <li class="flex justify-between items-center cursor-pointer hover:text-[#f6464b]">
+                    <div class="flex items-center space-x-3">
+                        <i class="fa-regular fa-file-lines text-lg"></i>
+                        <span>Orders</span>
+                    </div>
+                    <i class="fa-solid fa-angle-right text-sm"></i>
+                </li>
+
+                <li>
+                    <div class="flex justify-between items-center cursor-pointer hover:text-[#f6464b]">
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-regular fa-clipboard text-lg"></i>
+                            <span>Menus</span>
+                        </div>
+                        <i class="fa-solid fa-angle-down text-sm"></i>
+                    </div>
+                    <ul class="ml-10 mt-2 space-y-2 text-sm text-gray-500">
+                        <li class="hover:text-[#f6464b] cursor-pointer">Add New Menu</li>
+                        <li class="hover:text-[#f6464b] cursor-pointer">Menu List</li>
+                        <li class="hover:text-[#f6464b] cursor-pointer">Categories</li>
+                    </ul>
+                </li>
+
+                <li class="flex items-center space-x-3 bg-[#fff2f2] text-[#f6464b] font-medium p-2 rounded-xl">
+                    <i class="fa-solid fa-box-archive text-lg"></i>
+                    <span>Cataloge</span>
+                </li>
+
+                <li class="flex items-center space-x-3 cursor-pointer hover:text-[#f6464b]">
+                    <i class="fa-regular fa-chart-bar text-lg"></i>
+                    <span>Analytics</span>
+                </li>
+
+                <li class="flex items-center space-x-3 cursor-pointer hover:text-[#f6464b]">
+                    <i class="fa-solid fa-tags text-lg"></i>
+                    <span>Tags</span>
+                </li>
+
+                <li class="flex items-center space-x-3 cursor-pointer hover:text-[#f6464b]">
+                    <i class="fa-regular fa-user text-lg"></i>
+                    <span>Customers</span>
+                </li>
+
+                <li class="flex items-center space-x-3 cursor-pointer hover:text-[#f6464b]">
+                    <i class="fa-solid fa-gear text-lg"></i>
+                    <span>Setting</span>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-4">
+            <!-- Navbar -->
+            <header class="mb-6">
+                <nav class="flex justify-between items-center bg-white rounded-xl p-4 shadow-sm">
+                    <div>
+                        <h1 class="font-semibold text-lg text-gray-800">Hello Jhone Doe,</h1>
+                        <p class="text-gray-500 text-sm -mt-1">Welcome to back!</p>
+                    </div>
+
+                    <div class="flex items-center space-x-6">
+                        <button class="bg-[#f6464b] hover:bg-red-600 text-white font-medium px-5 py-2 rounded-full transition">Menu Guide</button>
+
+                        <div class="relative">
+                            <i class="fa-solid fa-cart-shopping text-xl text-gray-700"></i>
+                            <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">3</span>
+                        </div>
+
+                        <div class="relative">
+                            <i class="fa-regular fa-bell text-xl text-gray-700"></i>
+                            <span class="absolute -top-2 -right-2 bg-indigo-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">4</span>
+                        </div>
+
+                        <div class="flex items-center space-x-2 bg-[#fff2f2] px-3 py-1 rounded-full">
+                            <img src="https://i.pravatar.cc/40" alt="profile" class="w-8 h-8 rounded-full border-2 border-red-400 object-cover" />
+                            <div class="flex flex-col leading-tight">
+                                <span class="font-medium text-sm text-gray-800">Jhone</span>
+                                <span class="text-xs text-gray-500">Admin</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center bg-[#fff2f2] px-3 py-1 rounded-full space-x-2">
+                            <img src="https://flagcdn.com/us.svg" alt="English" class="w-5 h-5 rounded-sm" />
+                            <span class="text-sm font-medium text-gray-800">English</span>
+                            <i class="fa-solid fa-caret-down text-gray-600"></i>
+                        </div>
+
+                        <i class="fa-solid fa-lock text-lg text-gray-700"></i>
+                    </div>
+                </nav>
+            </header>
+
+            <!-- Filter + Food Cards -->
+            <section class="flex space-x-6">
+                <!-- Filter Section -->
+                <div class="bg-white p-5 rounded-xl shadow-sm w-64">
+                    <div class="flex justify-between items-center mb-3">
+                        <h2 class="font-semibold text-gray-700">FILTER</h2>
+                        <button class="text-green-600 text-sm font-medium">Reset All</button>
+                    </div>
+
+                    <div>
+                        <ul class="space-y-3 text-gray-700">
+                            <li>
+                                <input type="checkbox" class="accent-[#f6464b] mr-2" />
+                                All Promo
+                            </li>
+                            <li>
+                                <input type="checkbox" checked class="accent-[#f6464b] mr-2" />
+                                Special Menu
+                                <span class="float-right text-gray-400 text-sm">250+</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" class="accent-[#f6464b] mr-2" />
+                                Main Food
+                                <span class="float-right text-gray-400 text-sm">65</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" class="accent-[#f6464b] mr-2" />
+                                Drinks
+                            </li>
+                            <li>
+                                <input type="checkbox" class="accent-[#f6464b] mr-2" />
+                                Appetizer
+                            </li>
+                            <li>
+                                <input type="checkbox" class="accent-[#f6464b] mr-2" />
+                                Dessert
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="mt-20">
+                                <input type="checkbox" checked class="accent-[#f6464b] mr-2" />
+                                Chinese
+                            </li>
+                            <li>
+                                <input type="checkbox" class="accent-[#f6464b] mr-2" />
+                                Mexican
+                            </li>
+                            <li>
+                                <input type="checkbox" class="accent-[#f6464b] mr-2" />
+                                Italin
+                            </li>
+                            <li>
+                                <input type="checkbox" class="accent-[#f6464b] mr-2" />
+                                Indian
+                            </li>
+                            <li>
+                                <input type="checkbox" class="accent-[#f6464b] mr-2" />
+                                Western
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Price Range Filter (complete) -->
+                    <div class="mt-6">
+                        <h3 class="text-sm font-semibold text-[#f6464b] mb-3 tracking-wide">PRICE RANGE</h3>
+
+                        <div class="flex items-center gap-2 mb-3">
+                            <input id="minPrice" type="text" value="$10" class="w-16 border border-gray-300 rounded-md text-center text-sm py-1" />
+                            <span class="text-gray-500 text-sm">to</span>
+                            <input id="maxPrice" type="text" value="$120" class="w-16 border border-gray-300 rounded-md text-center text-sm py-1" />
+                        </div>
+
+                        <!-- Dual Range Slider -->
+                        <div class="relative h-3">
+                            <!-- track -->
+                            <div class="absolute inset-0 bg-gray-200 rounded-full"></div>
+
+                            <!-- selected range (progress) -->
+                            <div id="progress" class="absolute h-3 bg-[#f6464b] rounded-full" style="left: 0; width: 100%"></div>
+
+                            <!-- two overlaid range inputs (transparent) -->
+                            <input
+                                id="rangeMin"
+                                type="range"
+                                min="10"
+                                max="120"
+                                value="10"
+                                class="absolute inset-0 w-full h-3 appearance-none bg-transparent pointer-events-auto"
+                            />
+                            <input
+                                id="rangeMax"
+                                type="range"
+                                min="10"
+                                max="120"
+                                value="120"
+                                class="absolute inset-0 w-full h-3 appearance-none bg-transparent pointer-events-auto"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 w-full px-4">
+                    <!-- Food Cards -->
+                    <div class="bg-white rounded-sm shadow-md p-5 flex flex-col text-center hover:shadow-lg transition-all duration-200">
+                        <div class="flex justify-end mb-2">
+                            <span class="bg-[#70d84f] text-white text-xs font-medium px-2 py-1 rounded-full">$12.00</span>
+                        </div>
+
+                        <div class="mb-3 bg-gray-200 rounded-full w-28 h-28 flex items-center justify-center mx-auto">
+                            <img
+                                src="https://tse1.mm.bing.net/th/id/OIP.NyTWHuB1hxeFLThmmg1XjQHaE8?pid=Api&P=0&h=180"
+                                class="w-24 h-24 rounded-full object-cover"
+                                alt="food"
+                            />
+                        </div>
+
+                        <h3 class="font-semibold text-gray-800 text-sm min-h-6">Chicken Sandwich</h3>
+
+                        <div class="flex justify-center mb-1 text-yellow-400 text-xl">
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div class="text-gray-300">&starf;</div>
+                        </div>
+
+                        <p class="text-gray-500 font-semibold text-[10px] text-left mb-3 min-h-12">
+                            Made with fresh ingredients and
+                            <br />
+                            quality maintained in every food.
+                        </p>
+
+                        <button
+                            class="mt-auto bg-white text-red-500 text-sm font-medium px-4 py-2 border-2 rounded-full hover:bg-[#f54749] hover:text-white transition-all duration-200"
+                        >
+                            Add to Cart
+                        </button>
+                    </div>
+
+                    <!-- Food Cards -->
+                    <div class="bg-white rounded-sm shadow-md p-5 flex flex-col text-center hover:shadow-lg transition-all duration-200">
+                        <div class="flex justify-end mb-2">
+                            <span class="bg-[#70d84f] text-white text-xs font-medium px-2 py-1 rounded-full">$12.00</span>
+                        </div>
+
+                        <div class="mb-3 bg-gray-200 rounded-full w-28 h-28 flex items-center justify-center mx-auto">
+                            <img
+                                src="https://www.simplyrecipes.com/thmb/nHwZk5pKaCOn591969BaF36eHJc=/5184x3456/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Grilling-Chicken-Guide-LEAD-5-8f4cf34238fd44db87e181192f19990b.jpg"
+                                class="w-24 h-24 rounded-full object-cover"
+                                alt="food"
+                            />
+                        </div>
+
+                        <h3 class="font-semibold text-gray-800 text-sm min-h-6">Chicken Grill</h3>
+
+                        <div class="flex justify-center mb-1 text-yellow-400 text-xl">
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div class="text-gray-300">&starf;</div>
+                        </div>
+
+                        <p class="text-gray-500 font-semibold text-[10px] text-left mb-3 min-h-12">
+                            Made with fresh ingredients and
+                            <br />
+                            quality maintained in every food.
+                        </p>
+
+                        <button
+                            class="mt-auto bg-white text-red-500 text-sm font-medium px-4 py-2 border-2 rounded-full hover:bg-[#f54749] hover:text-white transition-all duration-200"
+                        >
+                            Add to Cart
+                        </button>
+                    </div>
+
+                    <!-- Food Cards -->
+                    <div class="bg-white rounded-sm shadow-md p-5 flex flex-col text-center hover:shadow-lg transition-all duration-200">
+                        <div class="flex justify-end mb-2">
+                            <span class="bg-[#70d84f] text-white text-xs font-medium px-2 py-1 rounded-full">$12.00</span>
+                        </div>
+
+                        <div class="mb-3 bg-gray-200 rounded-full w-28 h-28 flex items-center justify-center mx-auto">
+                            <img
+                                src="https://img.freepik.com/premium-photo/closeup-appetizing-hot-pizza-pepperoni-with-salami_219193-1175.jpg?w=2000"
+                                class="w-24 h-24 rounded-full object-cover"
+                                alt="food"
+                            />
+                        </div>
+
+                        <h3 class="font-semibold text-gray-800 text-sm min-h-6">Hot Pizza</h3>
+
+                        <div class="flex justify-center mb-1 text-yellow-400 text-xl">
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div class="text-gray-300">&starf;</div>
+                        </div>
+
+                        <p class="text-gray-500 font-semibold text-[10px] text-left mb-3 min-h-12">
+                            Made with fresh ingredients and
+                            <br />
+                            quality maintained in every food.
+                        </p>
+
+                        <button
+                            class="mt-auto bg-white text-red-500 text-sm font-medium px-4 py-2 border-2 rounded-full hover:bg-[#f54749] hover:text-white transition-all duration-200"
+                        >
+                            Add to Cart
+                        </button>
+                    </div>
+
+                    <!-- Food Cards -->
+                    <div class="bg-white rounded-sm shadow-md p-5 flex flex-col text-center hover:shadow-lg transition-all duration-200">
+                        <div class="flex justify-end mb-2">
+                            <span class="bg-[#70d84f] text-white text-xs font-medium px-2 py-1 rounded-full">$12.00</span>
+                        </div>
+
+                        <div class="mb-3 bg-gray-200 rounded-full w-28 h-28 flex items-center justify-center mx-auto">
+                            <img src="https://recipe-graphics.grocerywebsite.com/0_GraphicsRecipes/5607_4k.jpg" class="w-24 h-24 rounded-full object-cover" alt="food" />
+                        </div>
+
+                        <h3 class="font-semibold text-gray-800 text-sm min-h-6">Chicken Wings</h3>
+
+                        <div class="flex justify-center mb-1 text-yellow-400 text-xl">
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div class="text-gray-300">&starf;</div>
+                        </div>
+
+                        <p class="text-gray-500 font-semibold text-[10px] text-left mb-3 min-h-12">
+                            Made with fresh ingredients and
+                            <br />
+                            quality maintained in every food.
+                        </p>
+
+                        <button
+                            class="mt-auto bg-white text-red-500 text-sm font-medium px-4 py-2 border-2 rounded-full hover:bg-[#f54749] hover:text-white transition-all duration-200"
+                        >
+                            Add to Cart
+                        </button>
+                    </div>
+
+                    <!-- Food Cards -->
+                    <div class="bg-white rounded-sm shadow-md p-5 flex flex-col text-center hover:shadow-lg transition-all duration-200">
+                        <div class="flex justify-end mb-2">
+                            <span class="bg-[#70d84f] text-white text-xs font-medium px-2 py-1 rounded-full">$12.00</span>
+                        </div>
+
+                        <div class="mb-3 bg-gray-200 rounded-full w-28 h-28 flex items-center justify-center mx-auto">
+                            <img
+                                src="https://tse1.mm.bing.net/th/id/OIP.NyTWHuB1hxeFLThmmg1XjQHaE8?pid=Api&P=0&h=180"
+                                class="w-24 h-24 rounded-full object-cover"
+                                alt="food"
+                            />
+                        </div>
+
+                        <h3 class="font-semibold text-gray-800 text-sm min-h-6">Chicken Sandwich</h3>
+
+                        <div class="flex justify-center mb-1 text-yellow-400 text-xl">
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div class="text-gray-300">&starf;</div>
+                        </div>
+
+                        <p class="text-gray-500 font-semibold text-[10px] text-left mb-3 min-h-12">
+                            Made with fresh ingredients and
+                            <br />
+                            quality maintained in every food.
+                        </p>
+
+                        <button
+                            class="mt-auto bg-white text-red-500 text-sm font-medium px-4 py-2 border-2 rounded-full hover:bg-[#f54749] hover:text-white transition-all duration-200"
+                        >
+                            Add to Cart
+                        </button>
+                    </div>
+
+                    <!-- Food Cards -->
+                    <div class="bg-white rounded-sm shadow-md p-5 flex flex-col text-center hover:shadow-lg transition-all duration-200">
+                        <div class="flex justify-end mb-2">
+                            <span class="bg-[#70d84f] text-white text-xs font-medium px-2 py-1 rounded-full">$12.00</span>
+                        </div>
+
+                        <div class="mb-3 bg-gray-200 rounded-full w-28 h-28 flex items-center justify-center mx-auto">
+                            <img
+                                src="https://tse1.mm.bing.net/th/id/OIP.NyTWHuB1hxeFLThmmg1XjQHaE8?pid=Api&P=0&h=180"
+                                class="w-24 h-24 rounded-full object-cover"
+                                alt="food"
+                            />
+                        </div>
+
+                        <h3 class="font-semibold text-gray-800 text-sm min-h-6">Chicken Sandwich</h3>
+
+                        <div class="flex justify-center mb-1 text-yellow-400 text-xl">
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div class="text-gray-300">&starf;</div>
+                        </div>
+
+                        <p class="text-gray-500 font-semibold text-[10px] text-left mb-3 min-h-12">
+                            Made with fresh ingredients and
+                            <br />
+                            quality maintained in every food.
+                        </p>
+
+                        <button
+                            class="mt-auto bg-white text-red-500 text-sm font-medium px-4 py-2 border-2 rounded-full hover:bg-[#f54749] hover:text-white transition-all duration-200"
+                        >
+                            Add to Cart
+                        </button>
+                    </div>
+
+                    <!-- Food Cards -->
+                    <div class="bg-white rounded-sm shadow-md p-5 flex flex-col text-center hover:shadow-lg transition-all duration-200">
+                        <div class="flex justify-end mb-2">
+                            <span class="bg-[#70d84f] text-white text-xs font-medium px-2 py-1 rounded-full">$12.00</span>
+                        </div>
+
+                        <div class="mb-3 bg-gray-200 rounded-full w-28 h-28 flex items-center justify-center mx-auto">
+                            <img
+                                src="https://tse1.mm.bing.net/th/id/OIP.NyTWHuB1hxeFLThmmg1XjQHaE8?pid=Api&P=0&h=180"
+                                class="w-24 h-24 rounded-full object-cover"
+                                alt="food"
+                            />
+                        </div>
+
+                        <h3 class="font-semibold text-gray-800 text-sm min-h-6">Chicken Sandwich</h3>
+
+                        <div class="flex justify-center mb-1 text-yellow-400 text-xl">
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div class="text-gray-300">&starf;</div>
+                        </div>
+
+                        <p class="text-gray-500 font-semibold text-[10px] text-left mb-3 min-h-12">
+                            Made with fresh ingredients and
+                            <br />
+                            quality maintained in every food.
+                        </p>
+
+                        <button
+                            class="mt-auto bg-white text-red-500 text-sm font-medium px-4 py-2 border-2 rounded-full hover:bg-[#f54749] hover:text-white transition-all duration-200"
+                        >
+                            Add to Cart
+                        </button>
+                    </div>
+
+                    <!-- Food Cards -->
+                    <div class="bg-white rounded-sm shadow-md p-5 flex flex-col text-center hover:shadow-lg transition-all duration-200">
+                        <div class="flex justify-end mb-2">
+                            <span class="bg-[#70d84f] text-white text-xs font-medium px-2 py-1 rounded-full">$12.00</span>
+                        </div>
+
+                        <div class="mb-3 bg-gray-200 rounded-full w-28 h-28 flex items-center justify-center mx-auto">
+                            <img
+                                src="https://tse1.mm.bing.net/th/id/OIP.NyTWHuB1hxeFLThmmg1XjQHaE8?pid=Api&P=0&h=180"
+                                class="w-24 h-24 rounded-full object-cover"
+                                alt="food"
+                            />
+                        </div>
+
+                        <h3 class="font-semibold text-gray-800 text-sm min-h-6">Chicken Sandwich</h3>
+
+                        <div class="flex justify-center mb-1 text-yellow-400 text-xl">
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div class="text-gray-300">&starf;</div>
+                        </div>
+
+                        <p class="text-gray-500 font-semibold text-[10px] text-left mb-3 min-h-12">
+                            Made with fresh ingredients and
+                            <br />
+                            quality maintained in every food.
+                        </p>
+
+                        <button
+                            class="mt-auto bg-white text-red-500 text-sm font-medium px-4 py-2 border-2 rounded-full hover:bg-[#f54749] hover:text-white transition-all duration-200"
+                        >
+                            Add to Cart
+                        </button>
+                    </div>
+
+                    <!-- Food Cards -->
+                    <div class="bg-white rounded-sm shadow-md p-5 flex flex-col text-center hover:shadow-lg transition-all duration-200">
+                        <div class="flex justify-end mb-2">
+                            <span class="bg-[#70d84f] text-white text-xs font-medium px-2 py-1 rounded-full">$12.00</span>
+                        </div>
+
+                        <div class="mb-3 bg-gray-200 rounded-full w-28 h-28 flex items-center justify-center mx-auto">
+                            <img
+                                src="https://tse1.mm.bing.net/th/id/OIP.NyTWHuB1hxeFLThmmg1XjQHaE8?pid=Api&P=0&h=180"
+                                class="w-24 h-24 rounded-full object-cover"
+                                alt="food"
+                            />
+                        </div>
+
+                        <h3 class="font-semibold text-gray-800 text-sm min-h-6">Chicken Sandwich</h3>
+
+                        <div class="flex justify-center mb-1 text-yellow-400 text-xl">
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div class="text-gray-300">&starf;</div>
+                        </div>
+
+                        <p class="text-gray-500 font-semibold text-[10px] text-left mb-3 min-h-12">
+                            Made with fresh ingredients and
+                            <br />
+                            quality maintained in every food.
+                        </p>
+
+                        <button
+                            class="mt-auto bg-white text-red-500 text-sm font-medium px-4 py-2 border-2 rounded-full hover:bg-[#f54749] hover:text-white transition-all duration-200"
+                        >
+                            Add to Cart
+                        </button>
+                    </div>
+
+                    <!-- Food Cards -->
+                    <div class="bg-white rounded-sm shadow-md p-5 flex flex-col text-center hover:shadow-lg transition-all duration-200">
+                        <div class="flex justify-end mb-2">
+                            <span class="bg-[#70d84f] text-white text-xs font-medium px-2 py-1 rounded-full">$12.00</span>
+                        </div>
+
+                        <div class="mb-3 bg-gray-200 rounded-full w-28 h-28 flex items-center justify-center mx-auto">
+                            <img
+                                src="https://tse1.mm.bing.net/th/id/OIP.NyTWHuB1hxeFLThmmg1XjQHaE8?pid=Api&P=0&h=180"
+                                class="w-24 h-24 rounded-full object-cover"
+                                alt="food"
+                            />
+                        </div>
+
+                        <h3 class="font-semibold text-gray-800 text-sm min-h-6">Chicken Sandwich</h3>
+
+                        <div class="flex justify-center mb-1 text-yellow-400 text-xl">
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div class="text-gray-300">&starf;</div>
+                        </div>
+
+                        <p class="text-gray-500 font-semibold text-[10px] text-left mb-3 min-h-12">
+                            Made with fresh ingredients and
+                            <br />
+                            quality maintained in every food.
+                        </p>
+
+                        <button
+                            class="mt-auto bg-white text-red-500 text-sm font-medium px-4 py-2 border-2 rounded-full hover:bg-[#f54749] hover:text-white transition-all duration-200"
+                        >
+                            Add to Cart
+                        </button>
+                    </div>
+
+                    <!-- Food Cards -->
+                    <div class="bg-white rounded-sm shadow-md p-5 flex flex-col text-center hover:shadow-lg transition-all duration-200">
+                        <div class="flex justify-end mb-2">
+                            <span class="bg-[#70d84f] text-white text-xs font-medium px-2 py-1 rounded-full">$12.00</span>
+                        </div>
+
+                        <div class="mb-3 bg-gray-200 rounded-full w-28 h-28 flex items-center justify-center mx-auto">
+                            <img
+                                src="https://tse1.mm.bing.net/th/id/OIP.NyTWHuB1hxeFLThmmg1XjQHaE8?pid=Api&P=0&h=180"
+                                class="w-24 h-24 rounded-full object-cover"
+                                alt="food"
+                            />
+                        </div>
+
+                        <h3 class="font-semibold text-gray-800 text-sm min-h-6">Chicken Sandwich</h3>
+
+                        <div class="flex justify-center mb-1 text-yellow-400 text-xl">
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div class="text-gray-300">&starf;</div>
+                        </div>
+
+                        <p class="text-gray-500 font-semibold text-[10px] text-left mb-3 min-h-12">
+                            Made with fresh ingredients and
+                            <br />
+                            quality maintained in every food.
+                        </p>
+
+                        <button
+                            class="mt-auto bg-white text-red-500 text-sm font-medium px-4 py-2 border-2 rounded-full hover:bg-[#f54749] hover:text-white transition-all duration-200"
+                        >
+                            Add to Cart
+                        </button>
+                    </div>
+
+                    <!-- Food Cards -->
+                    <div class="bg-white rounded-sm shadow-md p-5 flex flex-col text-center hover:shadow-lg transition-all duration-200">
+                        <div class="flex justify-end mb-2">
+                            <span class="bg-[#70d84f] text-white text-xs font-medium px-2 py-1 rounded-full">$12.00</span>
+                        </div>
+
+                        <div class="mb-3 bg-gray-200 rounded-full w-28 h-28 flex items-center justify-center mx-auto">
+                            <img
+                                src="https://tse1.mm.bing.net/th/id/OIP.NyTWHuB1hxeFLThmmg1XjQHaE8?pid=Api&P=0&h=180"
+                                class="w-24 h-24 rounded-full object-cover"
+                                alt="food"
+                            />
+                        </div>
+
+                        <h3 class="font-semibold text-gray-800 text-sm min-h-6">Chicken Sandwich</h3>
+
+                        <div class="flex justify-center mb-1 text-yellow-400 text-xl">
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div>&starf;</div>
+                            <div class="text-gray-300">&starf;</div>
+                        </div>
+
+                        <p class="text-gray-500 font-semibold text-[10px] text-left mb-3 min-h-12">
+                            Made with fresh ingredients and
+                            <br />
+                            quality maintained in every food.
+                        </p>
+
+                        <button
+                            class="mt-auto bg-white text-red-500 text-sm font-medium px-4 py-2 border-2 rounded-full hover:bg-[#f54749] hover:text-white transition-all duration-200"
+                        >
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+    <!-- JavaScript -->
+    <script>
+        (function () {
+            const MIN = 10;
+            const MAX = 120;
+            const MIN_GAP = 1; // minimal jarak antara min & max
+
+            const rangeMin = document.getElementById('rangeMin');
+            const rangeMax = document.getElementById('rangeMax');
+            const progress = document.getElementById('progress');
+            const minPrice = document.getElementById('minPrice');
+            const maxPrice = document.getElementById('maxPrice');
+
+            function clamp(v, a, b) {
+                return Math.min(Math.max(v, a), b);
+            }
+
+            function updateSlider(e) {
+                // baca nilai sekarang
+                let vMin = parseInt(rangeMin.value, 10);
+                let vMax = parseInt(rangeMax.value, 10);
+
+                // jika user gerakkan sehingga overlap, perbaiki sesuai sumber event
+                if (vMin >= vMax) {
+                    if (e && e.target === rangeMin) {
+                        vMin = vMax - MIN_GAP;
+                        rangeMin.value = vMin;
+                    } else if (e && e.target === rangeMax) {
+                        vMax = vMin + MIN_GAP;
+                        rangeMax.value = vMax;
+                    } else {
+                        // ketika dipanggil tanpa event (inisialisasi), pastikan gap valid
+                        if (vMax - vMin < MIN_GAP) {
+                            vMin = clamp(vMin, MIN, MAX - MIN_GAP);
+                            vMax = vMin + MIN_GAP;
+                            rangeMin.value = vMin;
+                            rangeMax.value = vMax;
+                        }
+                    }
+                }
+
+                // clamp nilai ke range legal
+                vMin = clamp(vMin, MIN, MAX - MIN_GAP);
+                vMax = clamp(vMax, MIN + MIN_GAP, MAX);
+
+                // hitung persentase untuk posisi progress
+                const totalRange = MAX - MIN;
+                const minPct = ((vMin - MIN) / totalRange) * 100;
+                const maxPct = ((vMax - MIN) / totalRange) * 100;
+
+                // set progress left + width (lebih stabil daripada left+right)
+                progress.style.left = minPct + '%';
+                progress.style.width = maxPct - minPct + '%';
+
+                // sync text inputs
+                minPrice.value = `$${vMin}`;
+                maxPrice.value = `$${vMax}`;
+            }
+
+            // ketika user input nilai manual di kotak teks -> parse & set range
+            function parseAndApplyTextInputs() {
+                const rawMin = (minPrice.value || '').replace(/[^0-9]/g, '');
+                const rawMax = (maxPrice.value || '').replace(/[^0-9]/g, '');
+                let vMin = rawMin ? parseInt(rawMin, 10) : MIN;
+                let vMax = rawMax ? parseInt(rawMax, 10) : MAX;
+
+                vMin = clamp(vMin, MIN, MAX - MIN_GAP);
+                vMax = clamp(vMax, MIN + MIN_GAP, MAX);
+
+                if (vMin >= vMax) {
+                    // berikan prioritas pada vMin jika diubah manual (bisa disesuaikan)
+                    vMax = vMin + MIN_GAP;
+                    if (vMax > MAX) {
+                        vMax = MAX;
+                        vMin = MAX - MIN_GAP;
+                    }
+                }
+
+                rangeMin.value = vMin;
+                rangeMax.value = vMax;
+                updateSlider();
+            }
+
+            // listeners
+            rangeMin.addEventListener('input', updateSlider);
+            rangeMax.addEventListener('input', updateSlider);
+
+            // support keyboard arrow pada range (input already handles it) - keep synced
+            rangeMin.addEventListener('change', updateSlider);
+            rangeMax.addEventListener('change', updateSlider);
+
+            // text inputs: apply on blur (user selesai mengetik) and on Enter
+            minPrice.addEventListener('blur', parseAndApplyTextInputs);
+            maxPrice.addEventListener('blur', parseAndApplyTextInputs);
+            minPrice.addEventListener('keydown', (ev) => {
+                if (ev.key === 'Enter') parseAndApplyTextInputs();
+            });
+            maxPrice.addEventListener('keydown', (ev) => {
+                if (ev.key === 'Enter') parseAndApplyTextInputs();
+            });
+
+            // inisialisasi
+            updateSlider();
+        })();
+    </script>
+</html>
